@@ -1,5 +1,13 @@
-import { getPlayers } from '../api/players';
+import { getPlayers, createPlayer, updatePlayer } from '../api/players';
 import { setLoading } from './system';
+
+
+
+const defaultPlayer = {
+  name: '',
+  score: 0,
+  removed: false,
+}
 
 
 
@@ -20,12 +28,6 @@ const SET_SCORE = 'players/SET_SCORE';
 // reducer
 // =======
 
-const defaultPlayer = {
-  name: '',
-  score: 0,
-  removed: false,
-}
-
 const players = (state = [], action) => {
   switch (action.type) {
 
@@ -35,7 +37,7 @@ const players = (state = [], action) => {
     case ADD:
       return [
         ...state,
-        {...defaultPlayer, ...action.player},
+        action.player,
       ];
 
     case REMOVE:
@@ -54,14 +56,14 @@ const players = (state = [], action) => {
 
     case SET_NAME:
       return state.map((player, index) => (
-        (index === state.index)
+        (index === action.index)
           ? {...player, name: action.name}
           : player
       ));
 
     case SET_SCORE:
       return state.map((player, index) => (
-        (index === state.index)
+        (index === action.index)
           ? {...player, score: action.score}
           : player
       ));
@@ -80,6 +82,8 @@ export default players;
 // action creators
 // ===============
 
+// Most of these action creators are incomplete. We're optimistically updating the state before receiving the response from the API but not dealing with API errors. So if this app had a real API some of these requests would fail and the user would think changes are getting saved when they aren't.
+
 export const loadPlayers = () => async (dispatch) => {
   const response = await getPlayers();
   dispatch({
@@ -89,29 +93,45 @@ export const loadPlayers = () => async (dispatch) => {
   dispatch(setLoading(false));
 }
 
-export const addPlayer = (player = {}) => ({
-  type: ADD,
-  player,
-});
+export const addPlayer = (player = {}) => (dispatch) => {
+  const newPlayer = {...defaultPlayer, ...player};
+  createPlayer(newPlayer);
+  dispatch({
+    type: ADD,
+    player: newPlayer,
+  });
+}
 
-export const removePlayer = (index) => ({
-  type: REMOVE,
-  index,
-});
+export const removePlayer = (index) => (dispatch) => {
+  updatePlayer(index, {removed: true});
+  dispatch({
+    type: REMOVE,
+    index,
+  });
+}
 
-export const restorePlayer = (index) => ({
-  type: RESTORE,
-  index,
-});
+export const restorePlayer = (index) => (dispatch) => {
+  updatePlayer(index, {remove: false});
+  dispatch({
+    type: RESTORE,
+    index,
+  });
+}
 
-export const setPlayerName = (index, name) => ({
-  type: SET_NAME,
-  index,
-  name,
-});
+export const setPlayerName = (index, name) => (dispatch) => {
+  updatePlayer(index, {name});
+  dispatch({
+    type: SET_NAME,
+    index,
+    name,
+  });
+}
 
-export const setPlayerScore = (index, score) => ({
-  type: SET_SCORE,
-  index,
-  score,
-});
+export const setPlayerScore = (index, score) => (dispatch) => {
+  updatePlayer(index, {score});
+  dispatch({
+    type: SET_SCORE,
+    index,
+    score,
+  });
+}
