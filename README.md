@@ -1,10 +1,9 @@
-[<img alt='Scorekeeper screenshot' src='https://user-images.githubusercontent.com/1009531/166113486-d497f19a-ce9b-4ef4-90d0-40ac0c228cc0.png' width='462'>](https://lab43.github.io/example-scorekeeper/)
+[<img alt='Scorekeeper Screenshot' src='https://user-images.githubusercontent.com/1009531/166122001-8b90998d-4f41-42e0-941a-b37f6af1dded.png' width='450'>
+](https://lab43.github.io/example-scorekeeper-with-undo-and-redo/)
 
-### Scorekeeper is an example React/Redux app.
+This is an enhanced version of my example [Scorekeeper](https://github.com/Lab43/example-scorekeeper) React/Redux app with added undo/redo functionality.
 
-[You can demo it here.](https://lab43.github.io/example-scorekeeper/)
-
-The world is full of example todo apps, so I decided to make an interactive scoreboard instead. This app doesn't have a real backend, so each time you refresh it it will load the same sample data from a fake API. 
+### [You can demo it here.](https://lab43.github.io/example-scorekeeper-with-undo-and-redo/) 
 
 ---
 
