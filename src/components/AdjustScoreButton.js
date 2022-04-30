@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 
 import { setPlayerScore } from '../store/players';
+import { withHistory } from '../store/history';
 
 
 
@@ -9,7 +10,10 @@ const AdjustScoreButton = ({ children, player, amount, title }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(setPlayerScore(player.index, player.score + amount));
+    dispatch(withHistory(
+      setPlayerScore(player.index, player.score + amount),
+      setPlayerScore(player.index, player.score),
+    ));
   }
 
   return (

@@ -74,3 +74,8 @@ export const redo = () => (dispatch, getState) => {
   dispatch(redos[cursor + 1]);
   dispatch(setCursor(cursor + 1));
 }
+
+export const withHistory = (redo, undo) => (dispatch) => {
+  dispatch(redo);
+  dispatch(addHistory(redo, undo));
+};

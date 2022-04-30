@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 
 import { removePlayer, restorePlayer } from '../store/players';
-import { addHistory } from '../store/history';
+import { withHistory } from '../store/history';
 
 
 
@@ -10,8 +10,10 @@ const DeleteButton = ({ player }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(removePlayer(player.index));
-    dispatch(addHistory(removePlayer(player.index), restorePlayer(player.index)));
+    dispatch(withHistory(
+      removePlayer(player.index),
+      restorePlayer(player.index),
+    ));
   }
 
   return (
