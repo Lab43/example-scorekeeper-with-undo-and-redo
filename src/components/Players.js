@@ -34,18 +34,22 @@ const Players = () => {
           className={sorted[0].score === player.score ? 'winning' : ''}
         >
           <PlayerName player={player} />
-          {player.score}
+          <div className='score'>
+            {player.score}
+          </div>
           <AdjustScoreButton
             player={player}
             amount={1}
+            title='Increase Score'
           >
-            +1
+            ⬆️
           </AdjustScoreButton>
           <AdjustScoreButton
             player={player}
             amount={-1}
+            title='Decrease Score'
           >
-            -1
+            ⬇️
           </AdjustScoreButton>
           <DeleteButton player={player} />
         </li>

@@ -4,7 +4,7 @@ import { setPlayerScore } from '../store/players';
 
 
 
-const AdjustScoreButton = ({ player, amount, children }) => {
+const AdjustScoreButton = ({ children, player, amount, title }) => {
 
   const dispatch = useDispatch();
 
@@ -15,6 +15,7 @@ const AdjustScoreButton = ({ player, amount, children }) => {
   return (
     <button
       onClick={handleClick}
+      title={title}
     >
       {children}
     </button>

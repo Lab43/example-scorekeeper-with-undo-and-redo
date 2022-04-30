@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 
+import Loading from './Loading';
 import Scoreboard from './Scoreboard';
 
 
@@ -9,9 +10,13 @@ const App = () => {
   const { loading } = useSelector((state) => state.system);
 
   return (
-    loading
-      ? <h1>Loading...</h1>
-      : <Scoreboard />
+    <>
+      <h1>Scorekeeper</h1>
+      {loading
+        ? <Loading />
+        : <Scoreboard />
+      }
+    </>
   );
 
 }

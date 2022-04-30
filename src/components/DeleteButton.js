@@ -15,8 +15,10 @@ const DeleteButton = ({ player }) => {
   return (
     <button
       onClick={handleClick}
+      className='delete'
+      title='Delete Player'
     >
-      Delete
+      🗑️
     </button>
   );
 

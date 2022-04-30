@@ -13,7 +13,10 @@ const AddPlayerButton = () => {
   }
 
   return (
-    <button onClick={handleClick}>
+    <button
+      onClick={handleClick}
+      className='add-player'
+    >
       Add Player
     </button>
   );

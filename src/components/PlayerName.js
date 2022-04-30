@@ -16,14 +16,15 @@ const PlayerName = ({ player }) => {
     setEditedName(e.target.value);
   }
 
-  // when the user clicks out of the input field check if the name has been changed then update the redux store
+  // When the user clicks out of the input field check if the name has been changed then update the redux store.
+  // By only updating the store when the user is done editing the name we avoid making extra API calls.
   const handleBlur = () => {
     if (player.name !== editedName) {
       dispatch(setPlayerName(player.index, editedName));
     }
   }
 
-  // submit the changes when the user hits enter in the input field by blurring the focus
+  // The user will expect the changes to be applied when they hit enter. We can accomplish this by bluring focus on the input when the enter key is pressed.
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') e.target.blur();
   }
