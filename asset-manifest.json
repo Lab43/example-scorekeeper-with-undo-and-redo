@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/example-scorekeeper-with-undo-and-redo/static/css/main.b8751143.css",
+    "main.js": "/example-scorekeeper-with-undo-and-redo/static/js/main.9ec913d0.js",
+    "static/media/by-43.svg": "/example-scorekeeper-with-undo-and-redo/static/media/by-43.a5998d603d252da49021b7f58c0a64c2.svg",
+    "index.html": "/example-scorekeeper-with-undo-and-redo/index.html",
+    "main.b8751143.css.map": "/example-scorekeeper-with-undo-and-redo/static/css/main.b8751143.css.map",
+    "main.9ec913d0.js.map": "/example-scorekeeper-with-undo-and-redo/static/js/main.9ec913d0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b8751143.css",
+    "static/js/main.9ec913d0.js"
+  ]
+}
