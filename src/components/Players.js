@@ -13,11 +13,13 @@ const Players = () => {
   const sorted = players
     // keep track of the pre-sorted index, which the nested components will need to update the players
     .map((player, index) => ({...player, index}))
+    // filter out the removed players
+    .filter((player) => !player.removed)
     // sort the players
     .sort((a, b) => {
       if (a.score === b.score) {
-        // if the scores match, sort alphabetically
-        return a.name.localeCompare(b.name);
+        // If the scores match, sort the players alphabetically by name. We're adding 'zzz' to the end of names before comparing them as a simple way to force unnamed players to the bottom
+        return (a.name + 'zzz').localeCompare(b.name + 'zzz');
       } else {
         // otherwise sort by score
         return b.score - a.score;
@@ -28,7 +30,6 @@ const Players = () => {
   return (
     <ul>
       {sorted.map((player) => (
-        !player.removed &&
         <li
           key={player.index}
           className={sorted[0].score === player.score ? 'winning' : ''}

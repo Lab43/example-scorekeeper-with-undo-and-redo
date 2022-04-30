@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 
 import system from './system';
 import players from './players';
+import history from './history';
 
 
 
@@ -20,6 +21,7 @@ export default function makeStore (preloadedState) {
     combineReducers({
       players,
       system,
+      history,
     }),
     preloadedState,
     applyMiddleware(...middleware),

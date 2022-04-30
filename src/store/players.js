@@ -49,7 +49,7 @@ const players = (state = [], action) => {
 
     case RESTORE:
       return state.map((player, index) => (
-        (index === state.index)
+        (index === action.index)
           ? {...player, removed: false}
           : player
       ));
