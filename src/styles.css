@@ -18,7 +18,7 @@ body {
   justify-content: center;
 }
 
-#root {
+.card {
   background: #fff;
   margin: 1rem auto;
   width: 20rem;
@@ -106,4 +106,24 @@ input {
 .loading {
   text-align: center;
   padding: 3rem 0 5rem;
+}
+
+footer {
+  color:  #aaa;
+  font-size: 0.8rem;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+footer a {
+  color: inherit;
+}
+
+footer a:hover {
+  color:  #fff;
+}
+
+footer p {
+  margin: 1.5rem 0 0;
 }
