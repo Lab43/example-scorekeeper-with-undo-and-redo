@@ -13,7 +13,10 @@ const AddPlayerButton = () => {
 
   const handleClick = () => {
     dispatch(addPlayer());
-    dispatch(addHistory(restorePlayer(newPlayerIndex), removePlayer(newPlayerIndex)));
+    dispatch(addHistory(
+      restorePlayer(newPlayerIndex),
+      removePlayer(newPlayerIndex),
+    ));
   }
 
   return (
