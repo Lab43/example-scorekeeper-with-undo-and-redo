@@ -67,7 +67,7 @@ export const addHistory = (redo, undo) => ({
   undo
 });
 
-// do an action then save that action and it's redo action to the history
+// do an action then save that action and it's undo action to the history
 export const withHistory = (redo, undo) => (dispatch) => {
   dispatch(redo);
   dispatch(addHistory(redo, undo));
