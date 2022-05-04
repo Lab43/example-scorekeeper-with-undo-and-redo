@@ -9,6 +9,7 @@ const AddPlayerButton = () => {
 
   const dispatch = useDispatch();
 
+  // figure out what the new player's index will be
   const newPlayerIndex = useSelector((state) => state.players.length);
 
   const handleClick = () => {
