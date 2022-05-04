@@ -1,9 +1,9 @@
 [<img alt='Scorekeeper Screenshot' src='https://user-images.githubusercontent.com/1009531/166122001-8b90998d-4f41-42e0-941a-b37f6af1dded.png' width='450'>
-](https://lab43.github.io/example-scorekeeper-with-undo-and-redo/)
+](https://lab43.github.io/scorekeeper-with-undo-and-redo/)
 
-This is an enhanced version of my example [Scorekeeper](https://github.com/Lab43/example-scorekeeper) React/Redux app with added undo/redo functionality.
+This is an enhanced version of my example [Scorekeeper](https://github.com/Lab43/scorekeeper) React/Redux app with added undo/redo functionality.
 
-### [You can demo it here.](https://lab43.github.io/example-scorekeeper-with-undo-and-redo/) 
+### [You can demo it here.](https://lab43.github.io/scorekeeper-with-undo-and-redo/) 
 
 ---
 
