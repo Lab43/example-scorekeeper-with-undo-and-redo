@@ -64,7 +64,7 @@ export default history;
 export const addHistory = (redo, undo) => ({
   type: ADD_HISTORY,
   redo,
-  undo
+  undo,
 });
 
 // do an action then save that action and it's undo action to the history
