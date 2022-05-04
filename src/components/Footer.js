@@ -7,7 +7,7 @@ const Footer = () => (
     <p>
       This is an example React app.
       <br/>
-      <a href='https://github.com/Lab43/example-scorekeeper'>
+      <a href='https://github.com/Lab43/scorekeeper-with-undo-and-redo'>
         View the source code on GitHub.
       </a>
     </p>
