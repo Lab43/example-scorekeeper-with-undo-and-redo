@@ -12,9 +12,12 @@ const AddPlayerButton = () => {
   const newPlayerIndex = useSelector((state) => state.players.length);
 
   const handleClick = () => {
+    // create the player
     dispatch(addPlayer());
     dispatch(addHistory(
+      // restore the deleted player when the redo button is hit
       restorePlayer(newPlayerIndex),
+      // delete (mark as "removed") the player when the undo button is hit
       removePlayer(newPlayerIndex),
     ));
   }

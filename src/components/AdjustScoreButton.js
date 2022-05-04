@@ -11,7 +11,9 @@ const AdjustScoreButton = ({ children, player, amount, title }) => {
 
   const handleClick = () => {
     dispatch(withHistory(
+      // change the score
       setPlayerScore(player.index, player.score + amount),
+      // change the score back
       setPlayerScore(player.index, player.score),
     ));
   }

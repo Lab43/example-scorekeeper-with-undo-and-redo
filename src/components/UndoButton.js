@@ -8,6 +8,7 @@ const UndoButton = () => {
 
   const dispatch = useDispatch();
 
+  // disable the button when there are no actions to undo
   const disabled = useSelector((state) => (
     state.history.cursor === -1
   ));
