@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/scorekeeper-with-undo-and-redo/static/css/main.b8751143.css",
-    "main.js": "/scorekeeper-with-undo-and-redo/static/js/main.b6a9f95c.js",
+    "main.js": "/scorekeeper-with-undo-and-redo/static/js/main.178aafaf.js",
     "static/media/by-43.svg": "/scorekeeper-with-undo-and-redo/static/media/by-43.a5998d603d252da49021b7f58c0a64c2.svg",
     "index.html": "/scorekeeper-with-undo-and-redo/index.html",
     "main.b8751143.css.map": "/scorekeeper-with-undo-and-redo/static/css/main.b8751143.css.map",
-    "main.b6a9f95c.js.map": "/scorekeeper-with-undo-and-redo/static/js/main.b6a9f95c.js.map"
+    "main.178aafaf.js.map": "/scorekeeper-with-undo-and-redo/static/js/main.178aafaf.js.map"
   },
   "entrypoints": [
     "static/css/main.b8751143.css",
-    "static/js/main.b6a9f95c.js"
+    "static/js/main.178aafaf.js"
   ]
 }
