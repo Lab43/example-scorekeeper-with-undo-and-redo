@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { setPlayerName } from '../store/players';
-import { withHistory } from '../store/history';
 
 
 
@@ -20,10 +19,7 @@ const PlayerName = ({ player }) => {
 
   const handleBlur = () => {
     if (player.name !== name) {
-      dispatch(withHistory(
-        setPlayerName(player.index, name),
-        setPlayerName(player.index, player.name),
-      ));
+      dispatch(setPlayerName(player.index, name));
     }
   }
 
