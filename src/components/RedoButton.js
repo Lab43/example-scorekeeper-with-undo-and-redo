@@ -8,7 +8,7 @@ const RedoButton = () => {
 
   const dispatch = useDispatch();
 
-  // disable the button where there are no actions to redo
+  // disable the button when there are no actions to redo
   const disabled = useSelector((state) => (
     state.history.cursor + 1 >= state.history.redos.length
   ));
