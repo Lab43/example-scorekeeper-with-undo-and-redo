@@ -80,6 +80,8 @@ const setCursor = (cursor) => ({
 
 export const undo = () => (dispatch, getState) => {
   const { cursor, undos } = getState().history;
+  // if the cursor is -1 it means it's add the beggining of the history stack
+  // or the history stack is empty, and there is nothing that can be undone
   if (cursor === -1) throw new Error('No actions to undo');
   // undo the action at the cursor position
   dispatch(undos[cursor]);
@@ -89,6 +91,8 @@ export const undo = () => (dispatch, getState) => {
 
 export const redo = () => (dispatch, getState) => {
   const { cursor, redos } = getState().history;
+  // if the cursor is larger than the number of redos it means we are at
+  // the end of the history stack, and there is nothing that can be redone
   if (cursor + 1 >= redos.length) throw new Error('No actions to redo');
   // move the cursor forward
   dispatch(setCursor(cursor + 1));

@@ -94,7 +94,7 @@ export const loadPlayers = () => async (dispatch) => {
   dispatch(setLoading(false));
 }
 
-const doAddPlayer = (player = {}) => (dispatch) => {
+const handleAddPlayer = (player = {}) => (dispatch) => {
   const newPlayer = {...defaultPlayer, ...player};
   createPlayer(newPlayer);
   dispatch({
@@ -103,7 +103,7 @@ const doAddPlayer = (player = {}) => (dispatch) => {
   });
 }
 
-const doRemovePlayer = (index) => (dispatch) => {
+const handleRemovePlayer = (index) => (dispatch) => {
   updatePlayer(index, {removed: true});
   dispatch({
     type: REMOVE,
@@ -111,7 +111,7 @@ const doRemovePlayer = (index) => (dispatch) => {
   });
 }
 
-const doRestorePlayer = (index) => (dispatch) => {
+const handleRestorePlayer = (index) => (dispatch) => {
   updatePlayer(index, {remove: false});
   dispatch({
     type: RESTORE,
@@ -119,7 +119,7 @@ const doRestorePlayer = (index) => (dispatch) => {
   });
 }
 
-const doSetPlayerName = (index, name) => (dispatch) => {
+const handleSetPlayerName = (index, name) => (dispatch) => {
   updatePlayer(index, {name});
   dispatch({
     type: SET_NAME,
@@ -128,7 +128,7 @@ const doSetPlayerName = (index, name) => (dispatch) => {
   });
 }
 
-const doSetPlayerScore = (index, score) => (dispatch) => {
+const handleSetPlayerScore = (index, score) => (dispatch) => {
   updatePlayer(index, {score});
   dispatch({
     type: SET_SCORE,
@@ -141,34 +141,34 @@ export const addPlayer = (player = {}) => (dispatch, getState) => {
   // figure out what the new player's index will be
   const newPlayerIndex = getState().players.length;
   // create the player
-  dispatch(doAddPlayer());
+  dispatch(handleAddPlayer());
   dispatch(addHistory(
     // restore the deleted player when the redo button is hit
-    doRestorePlayer(newPlayerIndex),
+    handleRestorePlayer(newPlayerIndex),
     // delete (mark as "removed") the player when the undo button is hit
-    doRemovePlayer(newPlayerIndex),
+    handleRemovePlayer(newPlayerIndex),
   ));
 }
 
 export const removePlayer = (index) => (dispatch) => {
   dispatch(withHistory(
-    doRemovePlayer(index),
-    doRestorePlayer(index),
+    handleRemovePlayer(index),
+    handleRestorePlayer(index),
   ));
 }
 
 export const restorePlayer = (index) => (dispatch) => {
   dispatch(withHistory(
-    doRestorePlayer(index),
-    doRemovePlayer(index),
+    handleRestorePlayer(index),
+    handleRemovePlayer(index),
   ));
 }
 
 export const setPlayerName = (index, name) => (dispatch, getState) => {
   const oldName = getState().players[index].name;
   dispatch(withHistory(
-    doSetPlayerName(index, name),
-    doSetPlayerName(index, oldName),
+    handleSetPlayerName(index, name),
+    handleSetPlayerName(index, oldName),
   ));
 }
 
@@ -176,7 +176,7 @@ export const setPlayerScore = (index, score) => (dispatch, getState) => {
   const oldScore = getState().players[index].score;
   console.log({index, score, oldScore});
   dispatch(withHistory(
-    doSetPlayerScore(index, score),
-    doSetPlayerScore(index, oldScore),
+    handleSetPlayerScore(index, score),
+    handleSetPlayerScore(index, oldScore),
   ));
 }
