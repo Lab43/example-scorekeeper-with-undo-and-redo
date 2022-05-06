@@ -80,7 +80,7 @@ const setCursor = (cursor) => ({
 
 export const undo = () => (dispatch, getState) => {
   const { cursor, undos } = getState().history;
-  // if the cursor is -1 it means it's add the beggining of the history stack
+  // if the cursor is -1 it means it's at the beggining of the history stack,
   // or the history stack is empty, and there is nothing that can be undone
   if (cursor === -1) throw new Error('No actions to undo');
   // undo the action at the cursor position
