@@ -142,6 +142,7 @@ export const addPlayer = (player = {}) => (dispatch, getState) => {
   const newPlayerIndex = getState().players.length;
   // create the player
   dispatch(handleAddPlayer());
+  // add an entry to the history stack
   dispatch(addHistory(
     // restore the deleted player when the redo button is hit
     handleRestorePlayer(newPlayerIndex),
@@ -165,6 +166,7 @@ export const restorePlayer = (index) => (dispatch) => {
 }
 
 export const setPlayerName = (index, name) => (dispatch, getState) => {
+  // get the current name from the store
   const oldName = getState().players[index].name;
   dispatch(withHistory(
     handleSetPlayerName(index, name),
@@ -173,6 +175,7 @@ export const setPlayerName = (index, name) => (dispatch, getState) => {
 }
 
 export const setPlayerScore = (index, score) => (dispatch, getState) => {
+  // get the current score from the store
   const oldScore = getState().players[index].score;
   console.log({index, score, oldScore});
   dispatch(withHistory(
