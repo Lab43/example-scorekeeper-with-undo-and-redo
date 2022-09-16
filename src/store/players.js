@@ -166,7 +166,7 @@ export const restorePlayer = (index) => (dispatch) => {
 }
 
 export const setPlayerName = (index, name) => (dispatch, getState) => {
-  // get the current name from the store
+  // get the previous name from the store
   const oldName = getState().players[index].name;
   dispatch(withHistory(
     handleSetPlayerName(index, name),
@@ -175,7 +175,7 @@ export const setPlayerName = (index, name) => (dispatch, getState) => {
 }
 
 export const setPlayerScore = (index, score) => (dispatch, getState) => {
-  // get the current score from the store
+  // get the previous score from the store
   const oldScore = getState().players[index].score;
   dispatch(withHistory(
     handleSetPlayerScore(index, score),
